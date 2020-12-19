@@ -171,3 +171,5 @@ struct ImageScroll_Previews: PreviewProvider {
         ImageScroll(onlyFavorite: false).environmentObject(UserData())
     }
 }
+
+

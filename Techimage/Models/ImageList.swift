@@ -32,7 +32,10 @@ struct ImageList: View {
             }
         }
         .navigationBarTitle(Text("画像リスト"))
+        
+        
     }
+    
 }
 
 struct ImageList_Previews: PreviewProvider {

@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             // ここを編集します。albumにenvironmentObject()を使用します。
-            //window.rootViewController = UIHostingController(rootView: contentView)
+            //window.rootViewController = UIHostingController(rootView: contentView.environmentObject(userData))
             window.rootViewController = UIHostingController(rootView: album.environmentObject(userData))
             self.window = window
             window.makeKeyAndVisible()
