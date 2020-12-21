@@ -26,6 +26,21 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
         self.picker.isPresented.wrappedValue.dismiss()
         // 写真ライブラリに画像を保存
         UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil)
+        do {
+            let fileManager = FileManager.default
+            let docs = try fileManager.url(for: .documentDirectory,
+                                           in: .userDomainMask,
+                                           appropriateFor: nil, create: false)
+            let path = docs.appendingPathComponent("myFile.png")
+            
+            let data = selectedImage.pngData()
+            //let data = "Hello, world!".data(using: .utf8)!
+
+            fileManager.createFile(atPath: path.path,
+                                   contents: data, attributes: nil)
+        } catch {
+            print(error)
+        }
     }
     
 }
