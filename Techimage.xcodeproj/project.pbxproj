@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6D255D5A25856278007CD6A2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D255D5925856278007CD6A2 /* Coordinator.swift */; };
 		6D255D5C258585AD007CD6A2 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D255D5B258585AD007CD6A2 /* ImagePickerView.swift */; };
-		6D60A1DC258BEF1400E5C93D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60A1DB258BEF1400E5C93D /* ContentView.swift */; };
 		6DC01FA4256D4DDD00BB4E3A /* UIImage+Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC01FA3256D4DDD00BB4E3A /* UIImage+Filter.swift */; };
 		6DEB3BF925694BF200268EF8 /* ImageScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEB3BF825694BF200268EF8 /* ImageScroll.swift */; };
 		6DF0B23F255144A7002D0AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF0B23E255144A7002D0AAC /* AppDelegate.swift */; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		6D255D5925856278007CD6A2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6D255D5B258585AD007CD6A2 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
-		6D60A1DB258BEF1400E5C93D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../../../../.Trash/ContentView.swift; sourceTree = "<group>"; };
 		6DC01FA3256D4DDD00BB4E3A /* UIImage+Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Filter.swift"; sourceTree = "<group>"; };
 		6DEB3BF825694BF200268EF8 /* ImageScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScroll.swift; sourceTree = "<group>"; };
 		6DF0B23B255144A7002D0AAC /* Techimage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techimage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +96,6 @@
 				6DF0B244255144A9002D0AAC /* Assets.xcassets */,
 				6DF0B249255144A9002D0AAC /* LaunchScreen.storyboard */,
 				6DF0B24C255144A9002D0AAC /* Info.plist */,
-				6D60A1DB258BEF1400E5C93D /* ContentView.swift */,
 				6DF0B246255144A9002D0AAC /* Preview Content */,
 			);
 			path = Techimage;
@@ -213,7 +210,6 @@
 			files = (
 				6D255D5C258585AD007CD6A2 /* ImagePickerView.swift in Sources */,
 				6DFD7579255AD93D006783BA /* ImageListView.swift in Sources */,
-				6D60A1DC258BEF1400E5C93D /* ContentView.swift in Sources */,
 				6DFD757525593A71006783BA /* UserData.swift in Sources */,
 				6DFD75702553A519006783BA /* AlbumView.swift in Sources */,
 				6DF0B23F255144A7002D0AAC /* AppDelegate.swift in Sources */,

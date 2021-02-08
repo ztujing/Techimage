@@ -12,8 +12,9 @@
     // 画像リストの行
     struct ImageListView: View {
         
+        // 画像情報を使用します
         @EnvironmentObject private var userData: UserData
-        
+
         // self.userData.images配列の番号
         let id: Int
             

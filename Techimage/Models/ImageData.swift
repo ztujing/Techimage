@@ -64,6 +64,8 @@ func loadImageInfos() -> Array<ImageInfo> {
         // ファイル毎に異なるid番号を割り振るために１ずつ増やす
         idNum += 1
     }
+    
+    
   
     return imageInfos
 }

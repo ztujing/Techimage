@@ -1,5 +1,5 @@
 //
-//  ImagePicker.swift
+// c
 //  Techimage
 //
 //  Created by tujing on 2020/12/13.
@@ -10,6 +10,9 @@ import UIKit
 import SwiftUI
 
 struct ImagePickerView: UIViewControllerRepresentable {
+    
+    //追加　UserDataを使えるようにする
+    @EnvironmentObject private var userData: UserData
     
    
     @Binding var selectedImage: UIImage?//
@@ -28,8 +31,19 @@ struct ImagePickerView: UIViewControllerRepresentable {
 
     }
     // Connecting the Coordinator class with this struct
-        func makeCoordinator() -> Coordinator {
-            return Coordinator(picker: self)
-        }
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(picker: self,userData: self.userData)//自分自身を渡している　
     }
+    
+    //データの更新 一覧データ
+   
+    
+  
+    
+    
+    
+    
+}
+
+
   

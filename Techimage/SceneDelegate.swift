@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let album = Album()
         
             let userData = UserData()
+           
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -34,6 +35,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: album.environmentObject(userData))
             self.window = window
             window.makeKeyAndVisible()
+            
+            
         }
     }
 

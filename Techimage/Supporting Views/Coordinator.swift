@@ -9,14 +9,18 @@
 import SwiftUI
 
 
+
+
 class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var picker: ImagePickerView
     
-    init(picker: ImagePickerView) {//イニシャライザを作成
+    private var userData: UserData//追加
+    
+    init(picker: ImagePickerView,userData: UserData) {//イニシャライザを作成
         
         self.picker = picker
-        
+        self.userData = userData//追加
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -26,6 +30,7 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
         self.picker.isPresented.wrappedValue.dismiss()
         // 写真ライブラリに画像を保存
         //UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil)
+        //ドキュメントディレクトリに保存
         do {
             let fileManager = FileManager.default
             let docs = try fileManager.url(for: .documentDirectory,
@@ -36,18 +41,44 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
             //UUID型オブジェクトのuuidStringプロパティとして取得
             let uuid = UUID()
             let uniqueIdString = uuid.uuidString
-            let path = docs.appendingPathComponent(uniqueIdString + ".png")
+            let name = uniqueIdString + ".png"//name
+            let path = docs.appendingPathComponent(name)
             
             let data = selectedImage.pngData()
             
-            
-            //let data = "Hello, world!".data(using: .utf8)!
-
             fileManager.createFile(atPath: path.path,
                                    contents: data, attributes: nil)
+            
+            //の後にImageInfo構造体を作って、UserDataのimagesにappendする。
+            
+         
+
+        
+            
+            // 構造体を作成
+            let imageInfo = ImageInfo(id: self.userData.images.count,
+                                      name: name,
+                                      path: path.path,
+                                      isFavorite: false)
+            
+            
+            // 配列に追加
+            
+            self.userData.images.append(imageInfo)
+            
+                
+  
+            
+
+            
         } catch {
             print(error)
         }
+   
+       
+        
     }
+    
+    
     
 }
