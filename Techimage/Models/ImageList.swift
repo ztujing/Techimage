@@ -30,11 +30,15 @@ struct ImageList: View {
                     }
                 }
             }
+            /// 行削除
+            .onDelete { offsets in
+                            self.userData.images.remove(atOffsets: offsets)
         }
         .navigationBarTitle(Text("画像リスト"))
-        
-        
+        }
+   
     }
+
     
 }
 
