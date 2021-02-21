@@ -31,14 +31,21 @@ struct ImageList: View {
                 }
             }
             /// 行削除
-            .onDelete { offsets in
-                            self.userData.images.remove(atOffsets: offsets)
-        }
+//            .onDelete { offsets in
+//                            self.userData.images.remove(atOffsets: offsets)
+//            }
+            /// 行削除操作時に呼び出す処理の指定
+                        .onDelete(perform: rowRemove)
+             
         .navigationBarTitle(Text("画像リスト"))
         }
    
     }
-
+    /// 行削除処理
+     func rowRemove(offsets: IndexSet) {
+        self.userData.images.remove(atOffsets: offsets)
+     }
+     
     
 }
 

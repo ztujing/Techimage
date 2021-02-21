@@ -15,9 +15,9 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
     
     var picker: ImagePickerView
     
-    private var userData: UserData//追加
+    private var userData: UserData//追加　変数
     
-    init(picker: ImagePickerView,userData: UserData) {//イニシャライザを作成
+    init(picker: ImagePickerView,userData: UserData) {//イニシャライザ（コンストラクタ）を作成
         
         self.picker = picker
         self.userData = userData//追加
@@ -56,7 +56,7 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
         
             
             // 構造体を作成
-            let imageInfo = ImageInfo(id: self.userData.images.count,
+            let imageInfo = ImageInfo(id: self.userData.images.count,//リストの後ろに追加
                                       name: name,
                                       path: path.path,
                                       isFavorite: false)
