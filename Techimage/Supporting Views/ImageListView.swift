@@ -60,13 +60,8 @@
                         saveFavorite(name:self.userData.images[self.id].name,
                                      isFavorite:self.userData.images[self.id].isFavorite)
                     }
-                    
-//                else {
-//                    
-//                    // 画像情報がない場合、Noneを表示
-//                    Text("None")
-//                }
-            }
+                }
+              
         }
     }
 

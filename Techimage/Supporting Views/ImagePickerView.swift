@@ -1,5 +1,5 @@
 //
-// c
+//
 //  Techimage
 //
 //  Created by tujing on 2020/12/13.
@@ -16,12 +16,17 @@ struct ImagePickerView: UIViewControllerRepresentable {
     
    
     @Binding var selectedImage: UIImage?//
+    
+    @Binding var selectedMovie: NSURL?//
+    
     @Environment(\.presentationMode) var isPresented
     var sourceType: UIImagePickerController.SourceType
         
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = self.sourceType
+        //動画を扱えるようにする
+        imagePicker.mediaTypes = ["public.image", "public.movie"]
         imagePicker.delegate = context.coordinator // confirming the delegate
 
         return imagePicker
@@ -35,7 +40,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
         return Coordinator(picker: self,userData: self.userData)//自分自身を渡している　
     }
     
-    //データの更新 一覧データ
+    
    
     
   

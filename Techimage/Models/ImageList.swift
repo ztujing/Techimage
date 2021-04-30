@@ -43,6 +43,11 @@ struct ImageList: View {
     }
     /// 行削除処理
      func rowRemove(offsets: IndexSet) {
+        for offset in offsets {
+            let imageInfo = self.userData.images[offset]
+            try! FileManager.default.removeItem(atPath: imageInfo.path)
+            
+        }
         self.userData.images.remove(atOffsets: offsets)
      }
      

@@ -12,6 +12,7 @@ struct Album: View {
     
     @State private var sourceType: UIImagePickerController.SourceType = .camera
        @State private var selectedImage: UIImage?
+       @State private var selectedMovie: NSURL?
        @State private var isImagePickerDisplay = false
     
     //宣言
@@ -33,10 +34,11 @@ struct Album: View {
                             self.isImagePickerDisplay.toggle()
                         }.padding()
                         
+                        
                     }
     
                     .sheet(isPresented: self.$isImagePickerDisplay) {
-                        ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                        ImagePickerView(selectedImage: self.$selectedImage, selectedMovie: self.$selectedMovie, sourceType: self.sourceType)
                     }
 
              }
