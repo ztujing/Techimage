@@ -114,11 +114,11 @@
 		6DFD756C2553A1C3006783BA /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
-				6DFD756F2553A519006783BA /* AlbumView.swift */,
 				6DFD7578255AD93D006783BA /* ImageListView.swift */,
 				6D255D5B258585AD007CD6A2 /* ImagePickerView.swift */,
 				6D255D5925856278007CD6A2 /* Coordinator.swift */,
 				6D37F9A8263BF3ED0038F8A6 /* AVAsset+.swift */,
+				6DFD756F2553A519006783BA /* AlbumView.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";

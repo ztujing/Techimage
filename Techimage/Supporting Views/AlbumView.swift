@@ -23,7 +23,6 @@ struct AlbumView: View {
     }
     
     
-    
     var body: some View {
        
 
@@ -34,17 +33,17 @@ struct AlbumView: View {
 
                 // ビューをグループ化
                 Group {
-
+        
                     // 画像のファイルパスが設定されている場合
-                    if self.path.count > 0 {
+                    if self.path.count > 0   {
 
-                        // プロパティ値であるself.pathで画像のファイルパスを設定
-                        Image(uiImage: UIImage.init(contentsOfFile: self.path)!)
-                            // オリジナル画像を表示
-                            .renderingMode(.original)
-                            // 横幅、高さ、表示位置
-                            .frame(width: 100, height: 100, alignment: .center)
-                    }
+//                        // プロパティ値であるself.pathで画像のファイルパスを設定
+//                        Image(uiImage: UIImage.init(contentsOfFile: self.path)!)
+//                            // オリジナル画像を表示
+//                            .renderingMode(.original)
+//                            // 横幅、高さ、表示位置
+//                            .frame(width: 100, height: 100, alignment: .center)
+                }
                     else {
 
                         // iOSで使用できるシステムアイコン(四角)を表示

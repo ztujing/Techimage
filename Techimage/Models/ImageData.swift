@@ -44,6 +44,12 @@ func loadImageInfos() -> Array<ImageInfo> {
     var idNum = 0
     for name: String in fileNames {
         
+       //movが付いていればスキップ
+     if name.contains("MOV") == true {
+        print("movだよ")
+        
+     }else {
+        print("pngだよ")
         // お気に入りか判定
         var isFavorite = false
         if favoriteArray.contains(name) == true {
@@ -63,6 +69,8 @@ func loadImageInfos() -> Array<ImageInfo> {
         
         // ファイル毎に異なるid番号を割り振るために１ずつ増やす
         idNum += 1
+     }
+        
     }
     
     

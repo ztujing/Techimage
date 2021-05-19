@@ -91,6 +91,7 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
                         do {
                             let thumnailCGImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 1,timescale: 60), actualTime: nil)
                             print("サムネイルの切り取り成功！")
+                            
                             return UIImage(cgImage: thumnailCGImage, scale: 0, orientation: .right)
                         }catch let err{
                             print("エラー\(err)")
@@ -104,10 +105,9 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
                 //UUID型オブジェクトのuuidStringプロパティとして取得
                 let uuid = UUID()
                 let uniqueIdString = uuid.uuidString
-                let name = uniqueIdString + ".png"//name
-                let path = docs.appendingPathComponent(name)
+                var name = uniqueIdString + ".png"//name
+                var path = docs.appendingPathComponent(name)
 
-                //let data = selectedMovie.dataRepresentation//Data
                 let data = thumnailImage?.pngData()
 
                 //ファイルを作成
@@ -115,6 +115,12 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
                                        contents: data, attributes: nil)
                 
                
+                name = uniqueIdString + "." + selectedMovie.pathExtension!
+                path = docs.appendingPathComponent(name)
+
+                try fileManager.moveItem(at: selectedMovie as URL, to: path)
+                        print("動画の保存に成功しました。")
+                        print(path)
 
                 //の後にImageInfo構造体を作って、UserDataのimagesにappendする。
 
@@ -128,11 +134,9 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
                 // 配列に追加
 
                 self.userData.images.append(imageInfo)
+                print("ファイル追加しました")
 
                 //
-
-
-
 
             } catch {
                 print(error)

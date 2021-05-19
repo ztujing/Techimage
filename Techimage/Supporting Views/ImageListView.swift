@@ -14,7 +14,6 @@
         
         // 画像情報を使用します
         @EnvironmentObject private var userData: UserData
-
         // self.userData.images配列の番号
         let id: Int
             
@@ -24,16 +23,21 @@
             HStack {
                 
                 // 画像情報が１つでも存在する場合
-                if self.userData.images.count > 0 {
+                if self.userData.images.count > 0  {
                     
-                    // 画像
-                    Image(uiImage: UIImage.init(contentsOfFile: self.userData.images[self.id].path)!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50, alignment: .center)
+//                   var image = UIImage.init(contentsOfFile: self.userData.images[self.id].path)
+//
+//                    // 画像
+//                    Image(uiImage: )
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 50, height: 50, alignment: .center)
+
+                    Text(self.userData.images[self.id].path)
                     
                     // ファイル名称
                     Text(self.userData.images[self.id].name)
+                    
                     
                     // 画面一杯まで余白を追加
                     Spacer()

@@ -71,8 +71,8 @@ struct ImageScroll: View {
                                     }
                                     // 通常
                                     else {
-                                        Image(uiImage: UIImage.init(contentsOfFile: item.path)!)
-                                            .resizable()
+                                        Image(uiImage: UIImage(contentsOfFile: item.path)!)
+                                           .resizable()
                                     }
                                     
 
