@@ -10,14 +10,18 @@ import SwiftUI
 
 struct ItemDetailView: View {
     
+    // 画像情報を使用します
+    @EnvironmentObject private var userData: UserData
+    // self.userData.images配列の番号
+    let id: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        
+        Text(self.userData.images[self.id].path)
     }
 }
 
 struct ItemDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemDetailView().environmentObject(UserData())
+        ItemDetailView(id: 0).environmentObject(UserData())
     }
 }

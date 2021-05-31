@@ -25,7 +25,7 @@ struct ImageList: View {
                     item.isFavorite) ||
                     self.onlyFavorite == false {
                 
-                    NavigationLink(destination: ItemDetailView()) {
+                    NavigationLink(destination: ItemDetailView(id: item.id)) {
                     ImageListView(id: item.id)
                     }
                 }
