@@ -24,10 +24,10 @@
                 
                 // 画像情報が１つでも存在する場合
                 if self.userData.images.count > 0  {
-//                    
-////                   var image = UIImage.init(contentsOfFile: self.userData.images[self.id].path)
-////
-////                    // 画像
+                    
+//                   var image = UIImage.init(contentsOfFile: self.userData.images[self.id].path)
+//
+//                    // 画像
 //                    Image(uiImage: )
 //                        .resizable()
 //                        .aspectRatio(contentMode: .fit)

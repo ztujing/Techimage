@@ -17,6 +17,8 @@ struct ItemDetailView: View {
     
     var body: some View {
         Text(self.userData.images[self.id].path)
+        Image(uiImage: UIImage(contentsOfFile: self.userData.images[self.id].path)!)
+           .resizable()
     }
 }
 
