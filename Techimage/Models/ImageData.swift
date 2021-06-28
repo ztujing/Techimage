@@ -14,6 +14,7 @@ struct ImageInfo: Identifiable {
     let id: Int             // Identifiableに必要
     let name: String        // ファイル名称
     var path: String        // ファイルパス
+    var moviePath: String?  //　動画ファイルパス
     var isFavorite: Bool    // お気に入り
 }
 
@@ -43,34 +44,53 @@ func loadImageInfos() -> Array<ImageInfo> {
     // 全てのファイル情報を配列に設定する
     var idNum = 0
     for name: String in fileNames {
-        
-       //movが付いていればスキップ
-     if name.contains("MOV") == true {
-        print("movだよ")
-        
-     }else {
-        print("pngだよ")
-        // お気に入りか判定
-        var isFavorite = false
-        if favoriteArray.contains(name) == true {
-            isFavorite = true
-        }
-        
-        // Documentsフォルダパスにファイル名称を追加してファイルパスを作成
-        let path = documentsPath + "/" + name
-
-        // 構造体を作成
-        let imageInfo = ImageInfo(id: idNum,
-                                  name: name,
-                                  path: path,
-                                  isFavorite: isFavorite)
-        // 配列に追加
-        imageInfos.append(imageInfo)
-        
-        // ファイル毎に異なるid番号を割り振るために１ずつ増やす
-        idNum += 1
-     }
-        
+     
+        let url = URL(string: name)
+           //movが付いていればスキップ
+        if url!.pathExtension == "MOV" {//大文字
+            print("MOVだよ")
+            
+        } else {
+            print("pngだよ")
+            // お気に入りか判定
+            var isFavorite = false
+            if favoriteArray.contains(name) == true {
+                isFavorite = true
+            }
+            
+            // Documentsフォルダパスにファイル名称を追加してファイルパスを作成
+            let path = documentsPath + "/" + name
+            var moviePath: String? = nil
+            // TODO ***************************************************
+            //nameから.MOVの動画ファイル名を作る　文字列置換
+            let movieName = name.replacingOccurrences(of: "png", with: "MOV")
+            let checkPath = documentsPath + "/" + movieName
+            //  動画ファイルが存在するかどうか調べる
+            if (FileManager.default.fileExists(atPath: checkPath)){
+                print("ファイルあり、FILE AVAILABLE")
+                print(name)
+                print(checkPath)
+                moviePath = checkPath;
+                print(moviePath!)
+           }else{
+                print("ファイル無し、FILE NOT AVAILABLE")
+                print(name)
+                print(moviePath as Any)//
+           }
+            //存在したらフルパスをmoviePathに代入する
+            
+            // 構造体を作成
+            let imageInfo = ImageInfo(id: idNum,
+                                      name: name,
+                                      path: path,
+                                      moviePath: moviePath,
+                                      isFavorite: isFavorite)
+            // 配列に追加
+            imageInfos.append(imageInfo)
+            
+            // ファイル毎に異なるid番号を割り振るために１ずつ増やす
+            idNum += 1
+         }
     }
     
     

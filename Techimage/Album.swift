@@ -61,6 +61,7 @@ struct Album: View {
                         }
                         .navigationBarTitle(Text("アルバム"))
                     }//NavigationView
+                .navigationViewStyle(StackNavigationViewStyle())
 
                    
 
