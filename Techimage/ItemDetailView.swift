@@ -15,24 +15,30 @@ struct ItemDetailView: View {
     @EnvironmentObject private var userData: UserData
     // self.userData.images配列の番号
     let id: Int
-    let player = AVPlayer(url: URL(string: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8")!)
 
     var body: some View {
-        
-        
-//        Text(self.userData.images[self.id].path)
-        Image(uiImage: UIImage(contentsOfFile: self.userData.images[self.id].path)!)
-           .resizable()
-        
-        VideoPlayer(player: player)
-                    .onAppear() {
-                        // Start the player going, otherwise controls don't appear
-                        player.play()
-                    }
-                    .onDisappear() {
-                        // Stop the player when the view disappears
-                        player.pause()
-                    }
+
+        Group {
+                let moviePath = self.userData.images[self.id].moviePath// オプショナル型
+                if moviePath != nil{
+                    let urlPath = URL(fileURLWithPath: (moviePath)!)//URLにする
+                    let player = AVPlayer(url: urlPath)
+                    VideoPlayer(player: player)
+                                .onAppear() {
+                                    // Start the player going, otherwise controls don't appear
+                                    player.play()
+                                }
+                                .onDisappear() {
+                                    // Stop the player when the view disappears
+                                    player.pause()
+                                }
+                } else {
+
+                    Image(uiImage: UIImage(contentsOfFile: self.userData.images[self.id].path)!)
+                    .resizable()
+            
+                }
+        }
     }
 }
 

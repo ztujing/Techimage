@@ -34,7 +34,6 @@
 //                        .frame(width: 50, height: 50, alignment: .center)
 
                     Text(self.userData.images[self.id].path)
-                    
                     // ファイル名称
                     Text(self.userData.images[self.id].name)
                     
